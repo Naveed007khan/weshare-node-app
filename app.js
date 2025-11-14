@@ -51,6 +51,8 @@ app.post('/data', (req, res) => {
 // Start the server and listen on the defined port
 app.listen(port, () => {
   console.log(`\nServer is running successfully on: http://localhost:${port}`);
+  console.log(`\nServer is run for test on: http://localhost:${port}`);
+  console.log(`\nServer is run for test on: http://localhost:${port}`);
   console.log('---');
   console.log('Test GET: curl http://localhost:3000/');
   console.log('Test POST: curl -X POST -H "Content-Type: application/json" -d \'{"key": "value"}\' http://localhost:3000/data');
