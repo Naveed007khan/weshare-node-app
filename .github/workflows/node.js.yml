@@ -23,7 +23,8 @@ jobs:
     - name:  start application with pm2
       run: |
         cd $GITHUB_WORKSPACE
-        pm2 start app.js --name nod-application
+        echo "pm2 start app.js --name nod-application --watch"
+        echo "the above command wll run for the first time , it enable watch so it work auto"
         echo "application has been started successfully..//."
 
         
