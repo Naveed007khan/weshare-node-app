@@ -18,8 +18,8 @@ jobs:
         cd $GITHUB_WORKSPACE
         sudo docker build -t myapp .
         sudo docker images
-          if [ "$(docker ps  -aq -f name=node-app)" ]; then
-            docker rm -f my-app-container
+          if [ "$(sudo docker ps  -aq -f name=node-app)" ]; then
+           sudo docker rm -f my-app-container
           fi
 
         sudo docker run -p 3000:3000 -d --name node-app --restart unless-stopped  myapp 
