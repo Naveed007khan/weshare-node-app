@@ -9,23 +9,24 @@ permissions:
 
 jobs:
   deploy: 
-    runs-on: self-hosted
+    runs-on: dev
     steps:
     - name: check out the code 
       uses: actions/checkout@v4
-    - name: setup environment for application
+    - name: build image and start container
       run: |
         cd $GITHUB_WORKSPACE
-        sudo apt update
-        sudo apt install nodejs -y
-        sudo apt install npm -y
-        npm install --production
-    - name:  start application with pm2
+        sudo docker build -t myapp .
+        sudo docker images
+          if [ "$(docker ps  -aq -f name=node-app)" ]; then
+            docker rm -f my-app-container
+          fi
+
+        sudo docker run -p 3000:3000 -d --name node-app --restart unless-stopped  myapp 
+        
+    - name: done
       run: |
-        cd $GITHUB_WORKSPACE
-        echo "pm2 start app.js --name nod-application --watch"
-        echo "the above command wll run for the first time , it enable watch so it work auto"
-        echo "application has been started successfully..//."
+        echo "app started succssfully"
 
         
    
