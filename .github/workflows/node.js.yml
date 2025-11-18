@@ -50,7 +50,7 @@ jobs:
           if [ "$(sudo docker ps  -aq -f name=node-app-stage)" ]; then
             sudo docker rm -f node-app-stage 
           fi 
-          sudo docker run -p 8080:3000 -d --name node-app-stage   myapp-stage
+          sudo docker run -p 8081:3000 -d --name node-app-stage   myapp-stage
           echo "successfully deployed to staging server"
 
   deploy_to_prod:
