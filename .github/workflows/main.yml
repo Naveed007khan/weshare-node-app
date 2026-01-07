@@ -19,4 +19,4 @@ jobs:
       - name: build docker image
         run: |
           cd $GITHUB_WORKSPACE
-          echo "$GITHB_WORKSPACE"
+          echo "$GITHUB_WORKSPACE"
