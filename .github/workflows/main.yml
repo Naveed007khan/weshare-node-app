@@ -20,3 +20,7 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE
           echo "$GITHUB_WORKSPACE"
+          docker-compose up -d .
+          docker images
+          docker ps -a
+          
