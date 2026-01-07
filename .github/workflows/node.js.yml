@@ -21,6 +21,7 @@ jobs:
     - name: build image and start container
       run: |
         cd $GITHUB_WORKSPACE
+        whoami
         sudo docker build -t myapp-dev .
         sudo docker images
         if [ "$(sudo docker ps  -aq -f name=node-app-dev)" ]; then
