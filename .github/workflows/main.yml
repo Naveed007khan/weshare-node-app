@@ -7,4 +7,16 @@ permissions:
     actions: write
 
     
+jobs: 
+  deploy-to-prod:
+    runs-on: self-hosted
+    environment: prod
 
+    if: github.ref=='refs/heads/master'
+    steps:
+      - name: checkout the code
+        uses: actions/checkout@v4
+      - name: build docker image
+        run: |
+          cd $GITHUB_WORKSPACE
+          echo "$GITHB_WORKSPACE"
