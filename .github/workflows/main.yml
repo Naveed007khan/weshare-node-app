@@ -1,1 +1,10 @@
+name: cd/main
+on:
+  push:
+    branches: ['master','dev','stage']
+permissions:
+    contents: read
+    actions: write
+
+    
 
