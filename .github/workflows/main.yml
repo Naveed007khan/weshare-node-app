@@ -21,7 +21,7 @@ jobs:
           cd $GITHUB_WORKSPACE
           echo "$GITHUB_WORKSPACE"
           whoami
-          docker-compose up -d .
-          docker images
-          docker ps -a
+          sudo docker-compose up -d .
+          sudo docker images
+          sudo docker ps -a
           
