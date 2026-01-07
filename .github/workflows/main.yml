@@ -19,9 +19,11 @@ jobs:
       - name: build docker image
         run: |
           cd $GITHUB_WORKSPACE
-          echo "$GITHUB_WORKSPACE"
-          whoami
+          if [ "$(docker ps -aqf name=node-app-container)" ];then
+            sudo docker rm -f node-app-container
+            sudo docker rmi -f weshare:latest
+          fi 
           sudo docker-compose up -d 
           sudo docker images
-          sudo docker ps -a
+
           
