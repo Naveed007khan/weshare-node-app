@@ -19,7 +19,7 @@ jobs:
       - name: build docker image
         run: |
           cd $GITHUB_WORKSPACE
-          if [ "$(docker ps -aqf name=node-app-container)" ];then
+          if [ "$(sudo docker ps -aqf name=node-app-container)" ];then
             sudo docker rm -f node-app-container
             sudo docker rmi -f weshare:latest
           fi 
