@@ -1,0 +1,11 @@
+version: "3.9"  # latest stable Docker Compose syntax
+
+services:
+  node-app:
+    build: .
+    container_name: node-app-container
+    ports:
+      - "3000:3000"  # map container port 3000 to host port 3000
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
