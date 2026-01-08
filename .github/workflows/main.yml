@@ -17,7 +17,13 @@ jobs:
       - name: build docker image
         run: |
           cd $GITHUB_WORKSPACE
-          sudo docker-compose up -d --build --force-recreate
+          sudo docker-compose build
+          if [ "$(sudo docker ps -aqf name=node-app-container)" ];then
+            sudo docker rm -f node-app-container
+          fi
+          sudo docker-compose up -d --force-recreate
+          sudo docker image prune -f
+          
           
 
           
