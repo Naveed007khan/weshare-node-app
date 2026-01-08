@@ -5,8 +5,6 @@ on:
 permissions:
     contents: read
     actions: write
-
-    
 jobs: 
   deploy-to-prod:
     runs-on: self-hosted
@@ -19,11 +17,7 @@ jobs:
       - name: build docker image
         run: |
           cd $GITHUB_WORKSPACE
-          if [ "$(sudo docker ps -aqf name=node-app-container)" ];then
-            sudo docker rm -f node-app-container
-            sudo docker rmi -f weshare:latest
-          fi 
           sudo docker-compose up -d 
-          sudo docker images
+          
 
           
