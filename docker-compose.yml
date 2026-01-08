@@ -4,7 +4,7 @@ services:
   node-app:
     build: .
     image: weshare:latest
-    container_name: node-app-container
+    container_name: node-app-container: ${IMAGE_TAG:-latest}
     ports:
       - "3000:3000"  # map container port 3000 to host port 3000
     restart: unless-stopped
