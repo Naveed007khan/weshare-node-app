@@ -17,7 +17,7 @@ jobs:
       - name: build docker image
         run: |
           cd $GITHUB_WORKSPACE
-          sudo docker-compose up -d --build 
+          sudo docker-compose up -d --build --force-recreate
           
 
           
