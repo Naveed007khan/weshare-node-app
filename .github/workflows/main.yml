@@ -23,7 +23,17 @@ jobs:
           fi
           sudo docker-compose up -d --force-recreate
           sudo docker image prune -f
-          
+      
+      - name: Notify Microsoft Teams
+        if: always() # ensures it runs even if previous steps fail
+        uses: dawidd6/action-send-webhook@v3
+        with:
+         webhook_url: ${{ secrets.TEAMS_WEBHOOK_URL }}
+         content: |
+          {
+            "title": "GitHub Actions Notification",
+            "text": "Workflow **${{ github.workflow }}** ran on branch **${{ github.ref_name }}**.\nStatus: **${{ job.status }}**"
+          }    
           
 
           
